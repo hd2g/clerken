@@ -1,8 +1,16 @@
 {
+  "private": true,
   "name": "frontend",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "spago build",
+    "build:watch": "while sleep 0.1; do find src test | entr -s \"spago build\"; done",
+    "test": "spago test",
+    "server": "parcel index.html",
+    "dev": "run-p build:watch server"
+  },
   "devDependencies": {
     "parcel": "^2.8.3",
     "purescript": "^0.15.8",
